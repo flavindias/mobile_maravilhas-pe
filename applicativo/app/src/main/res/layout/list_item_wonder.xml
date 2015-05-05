@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    style="@style/Base.Widget.AppCompat.ListView.Menu">
+
+    <TextView android:id="@+id/crime_list_item_titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Crime title"
+        android:background="#E0F2F1"
+        android:clickable="false"
+        android:gravity="center_vertical"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:singleLine="true"
+        android:textAppearance="@color/abc_background_cache_hint_selector_material_light"
+        android:layout_marginBottom="10dp"
+        android:textSize="@dimen/abc_text_size_medium_material" />
+</RelativeLayout>
+
+
