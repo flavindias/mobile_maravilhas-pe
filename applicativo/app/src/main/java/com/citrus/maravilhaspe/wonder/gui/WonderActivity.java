@@ -62,16 +62,6 @@ public class WonderActivity extends ActionBarActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            if (savedInstanceState == null) {
-                Bundle extras = getActivity().getIntent().getExtras();
-                if(extras == null) {
-                    MUSIC_ID = 0;
-                } else {
-                    MUSIC_ID = (int) getActivity().getIntent().getSerializableExtra(EXTRA_WONDER_ID);
-                }
-            } else {
-                MUSIC_ID = (int) savedInstanceState.getSerializable(EXTRA_WONDER_ID);
-            }
         }
 
 

@@ -17,7 +17,7 @@ public class WonderFactory{
         return INSTANCE;
     }
 
-    public synchronized IWonderDAO createWonderDAO(){
+    public synchronized IWonderDAO createWonderDAO( ){
         if(WONDER_DAO == null){
             WONDER_DAO = new WonderDAO();
         }

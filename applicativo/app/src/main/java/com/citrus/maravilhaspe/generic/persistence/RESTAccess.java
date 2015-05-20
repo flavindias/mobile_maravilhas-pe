@@ -11,8 +11,8 @@ import java.util.HashMap;
 
 public class RESTAccess implements IRESTAccess {
 	
-	private static final String HOST = "http://172.16.129.242/maravilhaspe/mobile_maravilhas-pe/sistema/"; //"http://api.qe2.swquality.com.br/";
-	private static final String WEBSITE_HOST = "http://172.16.129.242/maravilhaspe/mobile_maravilhas-pe/sistema/"; //"http://qe2.swquality.com.br/";
+	private static final String HOST = "http://192.168.1.103/maravilhaspe/mobile_maravilhas-pe/sistema/"; //"http://api.qe2.swquality.com.br/";
+	private static final String WEBSITE_HOST = "http://192.168.1.103/maravilhaspe/mobile_maravilhas-pe/sistema/"; //"http://qe2.swquality.com.br/";
 	
 	public RESTAccess() {
 	}

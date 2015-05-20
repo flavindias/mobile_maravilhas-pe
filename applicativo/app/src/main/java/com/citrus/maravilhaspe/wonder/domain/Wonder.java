@@ -4,6 +4,7 @@ package com.citrus.maravilhaspe.wonder.domain;
  * Created by Erick on 29/04/2015.
  */
 public class Wonder {
+    private int id;
     private String name;
     private String description;
     private String city;
@@ -43,5 +44,13 @@ public class Wonder {
 
     public String toString(){
         return this.name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

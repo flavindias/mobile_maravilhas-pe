@@ -16,10 +16,9 @@ public class WonderServices implements IWonderServices {
 
         return dao.getAll();
     }
-
     @Override
     public Wonder getWonderById(int id) {
-        IWonderServices dao = WonderFactory.getInstance().createWonderServices();
-        return dao.getWonderById(id);
+        IWonderDAO dao = WonderFactory.getInstance().createWonderDAO();
+        return dao.getById(id);
     }
 }

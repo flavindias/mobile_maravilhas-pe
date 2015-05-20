@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="wrap_content"
     style="@style/Base.Widget.AppCompat.ListView.Menu">
 
-    <TextView android:id="@+id/crime_list_item_titleTextView"
+    <TextView android:id="@+id/wonder_list_item_titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="normal"

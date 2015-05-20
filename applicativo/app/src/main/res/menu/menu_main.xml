@@ -1,6 +1,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.citrus.maravilhaspe.main.gui.MainActivity"
+    >
+    <item android:id="@+id/action_menu_inicio" android:title="@string/menu_inicio"
+        android:icon="@drawable/abc_ic_menu_cut_mtrl_alpha"
+
+        />
+    <item android:id="@+id/action_menu_natureza" android:title="@string/menu_natureza"
+        />
+    <item android:id="@+id/action_menu_religiosidade" android:title="@string/menu_religiosidade"
+
+        />
+
+    <item android:id="@+id/action_menu_historia_e_cultura" android:title="@string/menu_historia_e_cultura"
+/>
+
+    <item android:id="@+id/action_menu_eventos_e_diversao" android:title="@string/menu_eventos_e_diversao"
+
+        android:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_menu_sobre" android:title="@string/menu_sobre"
+
+        android:showAsAction="ifRoom"/>
 </menu>

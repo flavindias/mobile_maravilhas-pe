@@ -1,20 +1,21 @@
 package com.citrus.maravilhaspe.wonder.gui;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.citrus.maravilhaspe.R;
 import com.citrus.maravilhaspe.wonder.WonderFactory;
 import com.citrus.maravilhaspe.wonder.business.IWonderServices;
-import com.citrus.maravilhaspe.wonder.business.WonderServices;
-import com.citrus.maravilhaspe.wonder.domain.WonderLab;
 import com.citrus.maravilhaspe.wonder.domain.Wonder;
 
 import java.util.ArrayList;
@@ -23,22 +24,48 @@ import java.util.ArrayList;
  * Created by Erick on 29/04/2015.
  */
 public class WonderListFragment extends ListFragment {
+    public static final String TYPE = "wonderlistfragment.type";
     private ArrayList<Wonder> mWonders;
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         getActivity().setTitle("Maravilhas");
-        IWonderServices wServices = WonderFactory.getInstance().createWonderServices();
-        mWonders = wServices.getAllWonders();
-        //mWonders = WonderLab.get(getActivity()).getWonders();
-        //ArrayAdapter<Wonder> adapter = new ArrayAdapter<Wonder>(getActivity() , android.R.layout.simple_list_item_1, mWonders);
-        Log.i("logs", "raiva12");
-        WonderAdapter adapter = new WonderAdapter(mWonders);
-        setListAdapter(adapter);
-        //Log.i("logs", "raiva");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        // Creating service handler class instance
+        new AsyncTask<Void, Void, ArrayList<Wonder>>(){
+
+            @Override
+            protected ArrayList<Wonder> doInBackground(Void... voids) {
+                IWonderServices wServices = WonderFactory.getInstance().createWonderServices();
+                mWonders = wServices.getAllWonders();
+                return mWonders;
+            }
+
+            @Override
+            protected void onPostExecute(ArrayList<Wonder> wonders) {
+                WonderAdapter adapter = new WonderAdapter(wonders);
+                setListAdapter(adapter);
+            }
+
+        }.execute();
 
     }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Wonder wonder = ((WonderAdapter)getListAdapter()).getItem(position);
+
+        Intent i = new Intent(getActivity() , WonderActivity.class);
+        i.putExtra(WonderActivity.PlaceholderFragment.EXTRA_WONDER_ID , wonder.getId());
+
+        startActivity(i);
+    }
+
 
 
     @Override
@@ -65,27 +92,19 @@ public class WonderListFragment extends ListFragment {
     private class WonderAdapter extends ArrayAdapter<Wonder>{
         public WonderAdapter(ArrayList<Wonder> wonders){
             super(getActivity() , android.R.layout.simple_list_item_1 , wonders);
-            Log.i("logs", "raiva1");
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
 
             if( null == convertView){
-                Log.i("logs", "raiva1.2");
                 //convertView = getActivity().getLayoutInflater().inflate(R.layout.list_item_wonder , null);
                 convertView = getActivity().getLayoutInflater()
                         .inflate(R.layout.list_item_wonder, null);
             }
-
-            Log.i("logs", "raiva2");
-
             Wonder w = getItem(position);
-
-            Log.i("logs", "raiva3");
-           // TextView title = (TextView)convertView.findViewById(R.id.wonder_list_item_titleTextView);
-            //title.setText(w.getName());
-            Log.i("logs", "raiva4");
+            TextView title = (TextView)convertView.findViewById(R.id.wonder_list_item_titleTextView);
+            title.setText(w.getName());
             return convertView;
         }
     }
