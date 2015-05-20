@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,7 +18,7 @@ import com.citrus.maravilhaspe.wonder.WonderFactory;
 import com.citrus.maravilhaspe.wonder.business.IWonderServices;
 import com.citrus.maravilhaspe.wonder.domain.Wonder;
 
-public class WonderActivity extends ActionBarActivity {
+public class WonderActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

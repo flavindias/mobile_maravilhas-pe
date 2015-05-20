@@ -4,6 +4,6 @@
     tools:context="com.citrus.maravilhaspe.main.gui.MainActivity"
     >
     <item android:id="@+id/action_menu_sobre" android:title="@string/menu_sobre"
-        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        android:icon="@android:drawable/ic_dialog_info"
         android:showAsAction="ifRoom"/>
 </menu>

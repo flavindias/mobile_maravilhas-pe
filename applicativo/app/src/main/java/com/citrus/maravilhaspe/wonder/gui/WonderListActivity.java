@@ -2,7 +2,7 @@ package com.citrus.maravilhaspe.wonder.gui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,7 +12,7 @@ import com.citrus.maravilhaspe.main.gui.MainActivity;
 /**
  * Created by Erick on 29/04/2015.
  */
-public class WonderListActivity extends ActionBarActivity {
+public class WonderListActivity extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,8 @@ public class WonderListActivity extends ActionBarActivity {
                     .add(R.id.fragmentContainer, new WonderListFragment())
                     .commit();
         }
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -38,6 +40,9 @@ public class WonderListActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         switch (id) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
             case R.id.action_menu_inicio:
                 this._mainScreen();
                 return true;

@@ -1,17 +1,15 @@
 package com.citrus.maravilhaspe.main.gui;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.citrus.maravilhaspe.R;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +20,6 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new MainFragment())
                     .commit();
         }
-
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -46,11 +42,10 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+
     private void _dialogSobre(){
-        String text = "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.";
+        String text = "Projeto Dispositivos Móveis - Erick Haendel, Flaviano Dias e Thays Moura.";
         new AlertDialog.Builder(this)
-                .setView(R.layout.dialog_sobre)
                 .setTitle("Sobre Nós")
                 .setMessage( text )
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
