@@ -50,6 +50,34 @@ public class WonderDAO implements IWonderDAO {
     }
 
     @Override
+    public ArrayList<Wonder> getByType(String type) {
+        ArrayList<Wonder> mWonders = new ArrayList<Wonder>();
+
+        IRESTAccess rest = GenericFactory.getInstance().createRestAccess();
+        String result = rest.executeGetMethod("wonders.json?type=" + type);
+
+        try {
+            JSONObject jWonders = new JSONObject(result);
+            JSONArray jArrayWonders = jWonders.getJSONArray("wonders");
+            for (int i = 0 ; i < jArrayWonders.length(); i ++){
+                Wonder w = new Wonder();
+                JSONObject jwonder = jArrayWonders.getJSONObject(i);
+                //Setando dados
+                w.setName((String)jwonder.getString("name"));
+                w.setId((int) jwonder.getInt("id"));
+                w.setDescription((String)jwonder.getString("description"));
+                //Adicionando na array
+                mWonders.add(w);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return mWonders;
+    }
+
+    @Override
     public Wonder getById(int id) {
         Wonder wonder = new Wonder();
 

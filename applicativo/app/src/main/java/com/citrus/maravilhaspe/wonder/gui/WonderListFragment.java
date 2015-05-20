@@ -24,12 +24,43 @@ import java.util.ArrayList;
  * Created by Erick on 29/04/2015.
  */
 public class WonderListFragment extends ListFragment {
-    public static final String TYPE = "wonderlistfragment.type";
+    public static final String WONDER_TYPE = "wonderlistfragment.type";
+    private static String TYPE = null;
     private ArrayList<Wonder> mWonders;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setTitle("Maravilhas");
+        if (savedInstanceState == null) {
+            Bundle extras = getActivity().getIntent().getExtras();
+            if(extras == null) {
+                TYPE = null;
+            } else {
+                TYPE = (String) getActivity().getIntent().getSerializableExtra(WONDER_TYPE);
+            }
+        } else {
+            TYPE = (String) savedInstanceState.getSerializable(WONDER_TYPE);
+        }
+
+        this.alterTitle(TYPE);
+    }
+
+    private void alterTitle(String type){
+        switch (type){
+            case "eventos_e_diversao":
+                getActivity().setTitle("Eventos e Diversão");
+                break;
+            case "historia_e_cultura":
+                getActivity().setTitle("História e Cultura");
+                break;
+            case "natureza":
+                getActivity().setTitle("Natureza");
+                break;
+            case "religiosidade":
+                getActivity().setTitle("Religiosidade");
+                break;
+            default:
+                getActivity().setTitle("Maravilhas");
+        }
     }
 
     @Override
@@ -42,7 +73,7 @@ public class WonderListFragment extends ListFragment {
             @Override
             protected ArrayList<Wonder> doInBackground(Void... voids) {
                 IWonderServices wServices = WonderFactory.getInstance().createWonderServices();
-                mWonders = wServices.getAllWonders();
+                mWonders = wServices.getAllWonders(WonderListFragment.TYPE);
                 return mWonders;
             }
 

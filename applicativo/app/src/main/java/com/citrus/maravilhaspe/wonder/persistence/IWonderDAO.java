@@ -9,5 +9,6 @@ import java.util.ArrayList;
  */
 public interface IWonderDAO {
     ArrayList<Wonder> getAll();
+    ArrayList<Wonder> getByType(String type);
     Wonder getById(int id);
 }

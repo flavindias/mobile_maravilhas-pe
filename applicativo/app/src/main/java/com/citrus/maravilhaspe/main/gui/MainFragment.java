@@ -34,25 +34,46 @@ public class MainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
-
         this._events(rootView);
         return rootView;
     }
 
+    /**
+     * Botões da tela inicial
+     * @param view
+     */
     private void _events(View view){
         Button btnNatureza = (Button)view.findViewById(R.id.btn_natureza);
+        btnNatureza.setOnClickListener(onClickListener);
         Button btnEventos = (Button)view.findViewById(R.id.btn_eventos);
+        btnEventos.setOnClickListener(onClickListener);
         Button btnHistoria = (Button)view.findViewById(R.id.btn_historia);
+        btnHistoria.setOnClickListener(onClickListener);
         Button btnReligiosidade = (Button)view.findViewById(R.id.btn_religiosidade);
-
-        btnNatureza.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(final View v){
-                Intent i = new Intent(getActivity() , WonderListActivity.class);
-                i.putExtra(WonderListFragment.TYPE, "natureza");
-                startActivity(i);
-            }
-        });
+        btnReligiosidade.setOnClickListener(onClickListener);
     }
+
+    private View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(final View v) {
+            Intent i = new Intent(getActivity() , WonderListActivity.class);
+            switch(v.getId()){
+                case R.id.btn_eventos:
+                    i.putExtra(WonderListFragment.WONDER_TYPE, "eventos_e_diversao");
+                    break;
+                case R.id.btn_historia:
+                    i.putExtra(WonderListFragment.WONDER_TYPE, "historia_e_cultura");
+                    break;
+                case R.id.btn_natureza:
+                    i.putExtra(WonderListFragment.WONDER_TYPE, "natureza");
+                    break;
+                case R.id.btn_religiosidade:
+                    i.putExtra(WonderListFragment.WONDER_TYPE, "religiosidade");
+                    break;
+            }
+            startActivity(i);
+        }
+    };
+
+
 }

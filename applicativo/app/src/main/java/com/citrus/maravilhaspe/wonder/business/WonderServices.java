@@ -11,11 +11,17 @@ import java.util.ArrayList;
  */
 public class WonderServices implements IWonderServices {
     @Override
-    public ArrayList<Wonder> getAllWonders() {
+    public ArrayList<Wonder> getAllWonders(String type_wonder) {
         IWonderDAO dao = WonderFactory.getInstance().createWonderDAO();
 
-        return dao.getAll();
+        if(type_wonder == null) {
+            return dao.getAll();
+        }else{
+            return dao.getByType(type_wonder);
+        }
     }
+
+
     @Override
     public Wonder getWonderById(int id) {
         IWonderDAO dao = WonderFactory.getInstance().createWonderDAO();

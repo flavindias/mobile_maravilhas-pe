@@ -8,6 +8,6 @@ import java.util.ArrayList;
  * Created by Erick on 30/04/2015.
  */
 public interface IWonderServices {
-    ArrayList<Wonder> getAllWonders();
+    ArrayList<Wonder> getAllWonders(String type_wonder);
     Wonder getWonderById(int Id);
 }
