@@ -13,7 +13,14 @@
         <?php
             echo $this->Form->input('name');
             echo $this->Form->input('description');
-            echo $this->Form->input('wonderscol');
+            echo $this->Form->input('type' , [
+                'options' => [
+                    'natureza' => 'Natureza',
+                    'religiosidade' => 'Religiosidade',
+                    'eventos_e_diversao' => 'Eventos e Diversão',
+                    'historia_e_cultura' => 'História e Cultura'
+                ]
+            ]);
         ?>
     </fieldset>
     <fieldset>

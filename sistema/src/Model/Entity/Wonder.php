@@ -17,7 +17,7 @@ class Wonder extends Entity
     protected $_accessible = [
         'name' => true,
         'description' => true,
-        'wonderscol' => true,
+        'type' => true,
         'addresses' => true,
     ];
 }

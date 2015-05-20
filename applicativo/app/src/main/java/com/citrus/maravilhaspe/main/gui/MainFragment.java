@@ -27,7 +27,7 @@ public class MainFragment extends Fragment {
 
         // Enabling Up / Back navigation
 //        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
-  //      getActivity().getActionBar().setIcon(R.drawable.abc_btn_rating_star_on_mtrl_alpha);
+
     }
 
     @Override

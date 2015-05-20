@@ -1,7 +1,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.citrus.maravilhaspe.wonder.gui.WonderActivity">
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    tools:context="com.citrus.maravilhaspe.main.gui.WonderActivity"
+    >
+    <item android:id="@+id/action_menu_inicio" android:title="@string/menu_inicio"
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+
+        />
+    <item android:id="@+id/action_menu_natureza" android:title="@string/menu_natureza"
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        />
+    <item android:id="@+id/action_menu_religiosidade" android:title="@string/menu_religiosidade"
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        />
+
+    <item android:id="@+id/action_menu_historia_e_cultura" android:title="@string/menu_historia_e_cultura"
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        />
+
+    <item android:id="@+id/action_menu_eventos_e_diversao" android:title="@string/menu_eventos_e_diversao"
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        android:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/action_menu_sobre" android:title="@string/menu_sobre"
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
+        android:showAsAction="ifRoom"/>
 </menu>

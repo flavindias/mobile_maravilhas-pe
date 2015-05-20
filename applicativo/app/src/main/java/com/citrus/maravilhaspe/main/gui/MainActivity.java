@@ -1,11 +1,13 @@
 package com.citrus.maravilhaspe.main.gui;
 
+import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.citrus.maravilhaspe.R;
 
@@ -23,8 +25,6 @@ public class MainActivity extends ActionBarActivity {
 
 
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -34,40 +34,10 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Log.i("menu", String.valueOf(id));
-            return true;
-        }
-
         switch (item.getItemId()) {
             // action with ID action_refresh was selected
-            case R.id.action_menu_inicio:
-                Toast.makeText(this, "Inicio selected", Toast.LENGTH_SHORT)
-                        .show();
-                break;
-            // action with ID action_settings was selected
-            case R.id.action_menu_natureza:
-                Toast.makeText(this, "Natureza selected", Toast.LENGTH_SHORT)
-                        .show();
-                break;
-            case R.id.action_menu_religiosidade:
-                Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
-                        .show();
-                break;
-            case R.id.action_menu_historia_e_cultura:
-                Toast.makeText(this, "Historia selected", Toast.LENGTH_SHORT)
-                        .show();
-                break;
-
-            case R.id.action_menu_eventos_e_diversao:
-                Toast.makeText(this, "Eventos selected", Toast.LENGTH_SHORT)
-                        .show();
+            case R.id.action_menu_sobre:
+                this._dialogSobre();
                 break;
             default:
                 break;
@@ -76,5 +46,20 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void _dialogSobre(){
+        String text = "Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.";
+        new AlertDialog.Builder(this)
+                .setView(R.layout.dialog_sobre)
+                .setTitle("Sobre Nós")
+                .setMessage( text )
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                })
+                .setIcon(android.R.drawable.ic_menu_help)
+                .show();
+    }
 
 }

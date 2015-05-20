@@ -2,14 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/xampp/htdocs/maravilhaspe/src/Template/Wonders/index.ctp</file>
-            <file>file:/C:/xampp/htdocs/maravilhaspe/src/Template/Wonders/view.ctp</file>
-            <file>file:/C:/xampp/htdocs/maravilhaspe/src/Model/Table/WondersTable.php</file>
-            <file>file:/C:/xampp/htdocs/maravilhaspe/src/Controller/WondersController.php</file>
-            <file>file:/C:/xampp/htdocs/maravilhaspe/src/Template/Addresses/add.ctp</file>
-            <file>file:/C:/xampp/htdocs/maravilhaspe/src/Template/Wonders/add.ctp</file>
-            <file>file:/C:/xampp/htdocs/maravilhaspe/src/Template/Addresses/view.ctp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

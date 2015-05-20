@@ -18,6 +18,9 @@ class WondersController extends AppController
       {
         parent::initialize();
         $this->loadComponent('RequestHandler');
+        
+            $this->Auth->allow(['index', 'view']);
+        
     }
 
     /**
@@ -27,7 +30,37 @@ class WondersController extends AppController
      */
     public function index()
     {
-        $this->set('wonders', $this->paginate($this->Wonders));
+        $options = [];
+
+        if(isset($this->request->query['type'])){
+            switch ($this->request->query['type']) {
+                case 'natureza':
+                    $options = ['type' => 'natureza'];
+                    break;
+
+                case 'religiosidade':
+                    $options = ['type' => 'religiosidade'];
+                    break;
+
+                case 'historia_e_cultura':
+                    $options = ['type' => 'historia_e_cultura'];
+                    break;
+
+                case 'eventos_e_diversao':
+                    $options = ['type' => 'eventos_e_diversao'];
+                    break;
+                
+                default:
+                    $options = [];
+                    break;
+            }
+        }
+
+        $this->set('wonders', $this->Wonders->find('all', [
+            'conditions' => $options ,
+            'contain' => ['Addresses']
+        ]));
+
         $this->set('_serialize', ['wonders']);
     }
 
@@ -80,7 +113,7 @@ class WondersController extends AppController
     public function edit($id = null)
     {
         $wonder = $this->Wonders->get($id, [
-            'contain' => []
+            'contain' => ['Addresses']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $wonder = $this->Wonders->patchEntity($wonder, $this->request->data);

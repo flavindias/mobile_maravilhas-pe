@@ -42,7 +42,7 @@ class WondersTable extends Table
             ->allowEmpty('id', 'create')
             ->allowEmpty('name')
             ->allowEmpty('description')
-            ->allowEmpty('wonderscol');
+            ->allowEmpty('type');
 
         return $validator;
     }
