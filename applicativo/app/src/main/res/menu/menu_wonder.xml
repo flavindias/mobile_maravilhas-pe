@@ -5,7 +5,6 @@
     >
     <item android:id="@+id/action_menu_inicio" android:title="@string/menu_inicio"
         android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
-
         />
     <item android:id="@+id/action_menu_natureza" android:title="@string/menu_natureza"
         android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
@@ -20,9 +19,8 @@
 
     <item android:id="@+id/action_menu_eventos_e_diversao" android:title="@string/menu_eventos_e_diversao"
         android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
-        android:showAsAction="ifRoom"/>
+       />
 
     <item android:id="@+id/action_menu_sobre" android:title="@string/menu_sobre"
-        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"
-        android:showAsAction="ifRoom"/>
+        android:icon="@drawable/abc_ic_menu_copy_mtrl_am_alpha"/>
 </menu>
