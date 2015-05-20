@@ -1,4 +1,5 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -6,18 +7,27 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.citrus.maravilhaspe.main.gui.MainActivity$PlaceholderFragment">
 
+
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_natureza"
         android:id="@+id/btn_natureza"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_weight="0.25"
+        android:background="@mipmap/nature_bg"
+        android:backgroundTint="#ff177822"
+        android:alpha="0.5"
+        android:backgroundTintMode="multiply"
+        android:textColor="#fff7fff9"
+        android:textSize="@dimen/abc_text_size_headline_material" />
+
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_religiosidade"
         android:id="@+id/btn_religiosidade"
@@ -25,10 +35,17 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_weight="0.25"
+        android:background="@mipmap/religious_bg"
+        android:backgroundTint="#fffffd00"
+        android:alpha="0.5"
+        android:backgroundTintMode="multiply"
+        android:textColor="#fff7fff9"
+        android:textSize="@dimen/abc_text_size_headline_material"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_historia_e_cultura"
         android:id="@+id/btn_historia"
@@ -36,10 +53,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_weight="0.25"
+        android:background="@mipmap/history_bg"
+        android:backgroundTint="#ff882d1f"
+        android:alpha="0.5"
+        android:backgroundTintMode="multiply"
+        android:textColor="#fff7fff9"
+        android:textSize="@dimen/abc_text_size_headline_material"/>
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/menu_eventos_e_diversao"
         android:id="@+id/btn_eventos"
@@ -47,6 +71,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignRight="@+id/btn_historia"
-        android:layout_alignEnd="@+id/btn_historia" />
+        android:layout_alignEnd="@+id/btn_historia"
+        android:layout_weight="0.25"
+        android:background="@mipmap/event_bg"
+        android:backgroundTint="#ff486eff"
+        android:alpha="0.5"
+        android:backgroundTintMode="multiply"
+        android:textColor="#fff7fff9"
+        android:textSize="@dimen/abc_text_size_headline_material"/>
 
-</RelativeLayout>
+</LinearLayout>
