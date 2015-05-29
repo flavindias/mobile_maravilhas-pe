@@ -28,7 +28,6 @@ public class WonderDAO implements IWonderDAO {
         String result = rest.executeGetMethod("wonders.json");
 
         try {
-            Log.i("logs" , result);
             JSONObject jWonders = new JSONObject(result);
             JSONArray jArrayWonders = jWonders.getJSONArray("wonders");
             for (int i = 0 ; i < jArrayWonders.length(); i ++){

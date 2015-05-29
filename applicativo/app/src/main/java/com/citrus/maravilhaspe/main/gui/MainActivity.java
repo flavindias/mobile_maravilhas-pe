@@ -44,7 +44,7 @@ public class MainActivity extends FragmentActivity {
 
 
     private void _dialogSobre(){
-        String text = "Projeto Dispositivos Móveis - Erick Haendel, Flaviano Dias e Thays Moura.";
+        String text = "Projeto Dispositivos Móveis - Erick Haendel, Flaviano Dias e Thays Melo.";
         new AlertDialog.Builder(this)
                 .setTitle("Sobre Nós")
                 .setMessage( text )

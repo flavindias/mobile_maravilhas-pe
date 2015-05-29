@@ -1,5 +1,7 @@
 package com.citrus.maravilhaspe.wonder.gui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import com.citrus.maravilhaspe.wonder.business.IWonderServices;
 import com.citrus.maravilhaspe.wonder.domain.Wonder;
 
 public class WonderActivity extends FragmentActivity {
+    public static final String WONDER_TYPE = "wonder.type";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,8 @@ public class WonderActivity extends FragmentActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 
@@ -44,11 +49,14 @@ public class WonderActivity extends FragmentActivity {
 
         //noinspection SimplifiableIfStatement
         switch (id) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
             case R.id.action_menu_inicio:
                 this._mainScreen();
                 return true;
             case R.id.action_menu_sobre:
-                this._sobreScreen();
+                this._dialogSobre();
                 return true;
             case R.id.action_menu_natureza:
                 this._alterScreen("natureza");
@@ -67,6 +75,13 @@ public class WonderActivity extends FragmentActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent( this , WonderListActivity.class);
+        i.putExtra(WonderListFragment.WONDER_TYPE, WONDER_TYPE);
+        startActivity(i);
+    }
+
     private void _alterScreen(String type) {
         Intent i = new Intent( this , WonderListActivity.class);
         i.putExtra(WonderListFragment.WONDER_TYPE, type);
@@ -78,7 +93,18 @@ public class WonderActivity extends FragmentActivity {
         startActivity(i);
     }
 
-    private void _sobreScreen() {
+    private void _dialogSobre(){
+        String text = "Projeto Dispositivos Móveis - Erick Haendel, Flaviano Dias e Thays Melo.";
+        new AlertDialog.Builder(this)
+                .setTitle("Sobre Nós")
+                .setMessage( text )
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                })
+                .setIcon(android.R.drawable.ic_menu_help)
+                .show();
     }
 
     /**

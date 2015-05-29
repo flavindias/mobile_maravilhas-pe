@@ -70,15 +70,24 @@ public class WonderListFragment extends ListFragment {
 
             @Override
             protected ArrayList<Wonder> doInBackground(Void... voids) {
-                IWonderServices wServices = WonderFactory.getInstance().createWonderServices();
-                mWonders = wServices.getAllWonders(WonderListFragment.TYPE);
-                return mWonders;
+                try {
+                    IWonderServices wServices = WonderFactory.getInstance().createWonderServices();
+                    mWonders = wServices.getAllWonders(WonderListFragment.TYPE);
+                    return mWonders;
+                }catch (Exception e){
+                    return null;
+                }
+
             }
 
             @Override
             protected void onPostExecute(ArrayList<Wonder> wonders) {
-                WonderAdapter adapter = new WonderAdapter(wonders);
-                setListAdapter(adapter);
+                try {
+                    WonderAdapter adapter = new WonderAdapter(wonders);
+                    setListAdapter(adapter);
+                }catch (Exception e){
+
+                }
             }
 
         }.execute();
@@ -91,6 +100,7 @@ public class WonderListFragment extends ListFragment {
 
         Intent i = new Intent(getActivity(), WonderActivity.class);
         i.putExtra(WonderActivity.PlaceholderFragment.EXTRA_WONDER_ID, wonder.getId());
+        i.putExtra(WonderActivity.WONDER_TYPE, TYPE);
 
         startActivity(i);
     }

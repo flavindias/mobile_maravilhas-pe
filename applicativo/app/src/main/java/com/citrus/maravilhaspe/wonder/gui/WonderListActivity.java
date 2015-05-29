@@ -1,5 +1,7 @@
 package com.citrus.maravilhaspe.wonder.gui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -47,7 +49,7 @@ public class WonderListActivity extends FragmentActivity {
                 this._mainScreen();
                 return true;
             case R.id.action_menu_sobre:
-                this._sobreScreen();
+                this._dialogSobre();
                 return true;
             case R.id.action_menu_natureza:
                 this._alterScreen("natureza");
@@ -77,6 +79,18 @@ public class WonderListActivity extends FragmentActivity {
         startActivity(i);
     }
 
-    private void _sobreScreen() {
+    private void _dialogSobre(){
+        String text = "Projeto Dispositivos Móveis - Erick Haendel, Flaviano Dias e Thays Melo.";
+        new AlertDialog.Builder(this)
+                .setTitle("Sobre Nós")
+                .setMessage( text )
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                    }
+                })
+                .setIcon(android.R.drawable.ic_menu_help)
+                .show();
     }
+
 }
